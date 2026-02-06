@@ -22,7 +22,7 @@ type GuardMessage =
   | {
       role: "assistant";
       content: string;
-      tool_calls: Array<{ name: string; arguments: string }>;
+      tool_calls: Array<{ type: "function"; function: { name: string; arguments: string } }>;
     };
 
 async function callLakeraGuard(params: {
@@ -98,11 +98,14 @@ export default function register(api: {
     const messages: GuardMessage[] = [
       {
         role: "assistant",
-        content: "",
+        content: `Tool call: ${event.toolName} Params: ${JSON.stringify(event.params)}`,
         tool_calls: [
           {
-            name: event.toolName,
-            arguments: JSON.stringify(event.params),
+            type: "function",
+            function: {
+              name: event.toolName,
+              arguments: JSON.stringify(event.params),
+            },
           },
         ],
       },
@@ -112,7 +115,7 @@ export default function register(api: {
       const result = await callLakeraGuard({
         apiKey: config.apiKey,
         projectId: config.projectId,
-        timeoutMs: config.timeoutMs,
+        timeoutMs: config.timeoutMs ?? 5000,
         messages,
       });
 
