@@ -1,5 +1,5 @@
 {
-  "id": "lakera-guard",
+  "id": "openclaw-plugin-lakera-guard",
   "name": "Lakera Guard",
   "description": "Screen tool calls with Lakera Guard; block execution when content is flagged.",
   "configSchema": {

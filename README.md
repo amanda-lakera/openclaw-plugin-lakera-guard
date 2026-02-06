@@ -25,7 +25,7 @@ Set your Lakera API key and optional project ID under the plugin config:
 {
   "plugins": {
     "entries": {
-      "lakera-guard": {
+      "openclaw-plugin-lakera-guard": {
         "enabled": true,
         "config": {
           "apiKey": "your-lakera-api-key",

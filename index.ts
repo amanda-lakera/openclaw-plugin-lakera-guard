@@ -89,7 +89,7 @@ export default function register(api: {
 }) {
   const config = getConfig(api);
   if (!config) {
-    api.logger.warn("lakera-guard plugin: apiKey not configured; plugin no-op");
+    api.logger.warn("openclaw-plugin-lakera-guard plugin: apiKey not configured; plugin no-op");
     return;
   }
 
@@ -123,7 +123,7 @@ export default function register(api: {
         };
       }
     } catch (err) {
-      api.logger.warn(`lakera-guard: guard request failed: ${String(err)}`);
+      api.logger.warn(`openclaw-plugin-lakera-guard: guard request failed: ${String(err)}`);
       // On API failure, do not block the tool (fail open). Change to block for fail-closed.
     }
   });

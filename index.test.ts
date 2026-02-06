@@ -3,7 +3,7 @@ import register from "./index.ts";
 
 const LAKERA_GUARD_URL = "https://api.lakera.ai/v2/guard";
 
-describe("lakera-guard plugin", () => {
+describe("openclaw-plugin-lakera-guard plugin", () => {
   let mockFetch: ReturnType<typeof vi.fn>;
   let capturedHandler: (event: { toolName: string; params: Record<string, unknown> }, ctx: unknown) => Promise<{ block?: boolean; blockReason?: string } | void>;
   let warnLog: string[];
@@ -32,7 +32,7 @@ describe("lakera-guard plugin", () => {
   it("registers no handler when apiKey is missing", () => {
     register(createApi({}));
     expect(capturedHandler).toBeUndefined();
-    expect(warnLog).toContain("lakera-guard plugin: apiKey not configured; plugin no-op");
+    expect(warnLog).toContain("openclaw-plugin-lakera-guard plugin: apiKey not configured; plugin no-op");
   });
 
   it("sends assistant message with tool_calls to Lakera and blocks when flagged", async () => {
