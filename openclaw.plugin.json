@@ -1,0 +1,30 @@
+{
+  "id": "lakera-guard",
+  "name": "Lakera Guard",
+  "description": "Screen tool calls with Lakera Guard; block execution when content is flagged.",
+  "configSchema": {
+    "type": "object",
+    "additionalProperties": false,
+    "properties": {
+      "apiKey": {
+        "type": "string",
+        "description": "Lakera API key (required)"
+      },
+      "projectId": {
+        "type": "string",
+        "description": "Optional Lakera project ID for policy"
+      },
+      "timeoutMs": {
+        "type": "number",
+        "description": "Request timeout in milliseconds",
+        "default": 5000
+      }
+    },
+    "required": ["apiKey"]
+  },
+  "uiHints": {
+    "apiKey": { "label": "API key", "sensitive": true },
+    "projectId": { "label": "Project ID" },
+    "timeoutMs": { "label": "Timeout (ms)" }
+  }
+}
