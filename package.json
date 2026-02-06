@@ -1,9 +1,13 @@
 {
-  "name": "@lakera/openclaw-plugin",
+  "name": "@amanda-lakera/openclaw-plugin-lakera-guard",
   "version": "0.1.0",
   "description": "OpenClaw plugin: screen tool calls with Lakera Guard and block if flagged",
   "type": "module",
   "main": "index.ts",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:amanda-lakera/openclaw-plugin-lakera-guard.git"
+  },
   "scripts": {
     "test": "vitest run",
     "test:watch": "vitest"

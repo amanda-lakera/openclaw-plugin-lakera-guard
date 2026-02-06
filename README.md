@@ -4,16 +4,17 @@ Screens every tool call with [Lakera Guard](https://www.lakera.ai/) and blocks e
 
 ## Install
 
-From this repo (link or copy into OpenClaw's extensions):
+From this repo ([amanda-lakera/openclaw-plugin-lakera-guard](https://github.com/amanda-lakera/openclaw-plugin-lakera-guard)):
 
 ```bash
-openclaw plugins install -l /path/to/lakera-openclaw-plugin
+git clone git@github.com:amanda-lakera/openclaw-plugin-lakera-guard.git
+openclaw plugins install -l ./openclaw-plugin-lakera-guard
 ```
 
-Or from npm (when published):
+Or from npm:
 
 ```bash
-openclaw plugins install @lakera/openclaw-plugin
+openclaw plugins install @amanda-lakera/openclaw-plugin-lakera-guard
 ```
 
 ## Configure
@@ -70,3 +71,13 @@ Tests mock the Lakera API and assert that the plugin sends the correct assistant
    openclaw agent --message "What's the weather in London?"
    ```
 3. In the [Lakera Dashboard](https://platform.lakera.ai/) you can inspect requests and flagging. To verify blocking: use a test policy that flags a specific tool or argument pattern, or call the Guard API directly with a known-bad payload and confirm the same call is blocked when triggered via OpenClaw.
+
+## Publishing
+
+From the plugin directory, after [logging in to npm](https://docs.npmjs.com/cli/v8/commands/npm-login) (`npm login` or `pnpm login`):
+
+```bash
+pnpm publish --access public
+```
+
+Scoped packages (`@amanda-lakera/...`) are private by default; `--access public` makes this package installable by anyone.
